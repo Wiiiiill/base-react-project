@@ -1,31 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-import { testApi } from "@/apis/test"
-function App() {
-  const [count, setCount] = useState(0)
-  let t = async () => {
-    await testApi()
-  }
-  t()
+import Main from "@/pages/Main"
+import { BrowserRouter } from 'react-router-dom';
+import Layout from "@/layout/index.jsx"
+export default function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <h2>
-        v{__APP_VERSION__}
-      </h2>
-    </>
-  )
+    <Layout>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </Layout>
+  );
 }
-
-export default App

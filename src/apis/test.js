@@ -1,3 +1,3 @@
-import request, { buildPath } from "@/apis/request"
-const path = buildPath("/storage")
+import request, { modulePath } from "@/apis/request"
+const path = modulePath("/storage")
 export const testApi = () => request.get(`${path}/test/`)

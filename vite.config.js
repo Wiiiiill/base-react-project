@@ -7,7 +7,12 @@ export default defineConfig({
   plugins: [react(), visualizer({ open: true })],
   resolve: {
     alias: {
-      '@': resolve(__dirname, "src")
+      '@': resolve(__dirname, "src"),
+      // "@pages": resolve(__dirname, "src", "pages"),
+      // "@components": resolve(__dirname, "src", "components"),
+      // "@stores": resolve(__dirname, "src", "stores"),
+      // "@services": resolve(__dirname, "src", "services"),
+      // "@utils": resolve(__dirname, "src", "utils"),
     }
   },
   build: {

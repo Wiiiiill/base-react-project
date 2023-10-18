@@ -17,7 +17,7 @@ requester.interceptors.response.use((resp) => {
     return Promise.reject(error);
 })
 
-export const buildPath = (path) => {
+export const modulePath = (path) => {
     return (process.env.NODE_ENV === "development" ? "/api" : "") + path
 }
 export default requester
