@@ -1,5 +1,4 @@
 export default function News(props) {
-  console.log('this', props)
   return (
     <ul>
       <li>news1</li>

@@ -2,7 +2,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function Home(props) {
-    console.log('this', props)
     return (
         <div>
             <h2>Home组件内容</h2>

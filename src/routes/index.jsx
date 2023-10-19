@@ -1,19 +1,21 @@
 import { Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import Login from "@/layout/Login";
 
 const lazyLoad = (moduleName) => {
     const Module = lazy(() => {
         return import(`../pages/${moduleName}.jsx`)
     })
-    return <Suspense><Module BB={Math.random()} /></Suspense>
+    return <Suspense><Module Test={Math.random()} /></Suspense>
 }
 const Appraisal = ({ children }) => {
-    console.log('children', children)
-    const token = localStorage.getItem('token')
-    return token ? children : <Navigate to="/login" />;
+    const token = sessionStorage.getItem('token')
+    return token || true ? children : <Navigate to="/login" />;
 }
-export default [
-    { path: "/login", element: lazyLoad("Login") },
+export const defaultRoutes = [
+    { path: "/", element: <Navigate to="/login" /> },
+    { path: "/login", element: <Login /> },]
+export const extra = [
     { path: "/about", element: <Appraisal>{lazyLoad("About")}</Appraisal> },
     {
         path: "/home",
@@ -23,5 +25,4 @@ export default [
             { path: "message", element: lazyLoad("Message"), children: [{ path: "detail", element: lazyLoad("Detail") }] },
         ],
     },
-    { path: "/", element: <Navigate to="/login" /> },
 ];

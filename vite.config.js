@@ -36,6 +36,10 @@ export default defineConfig({
         changeOrigin: true,
         ws: true, rewrite: (path) => path.replace(/^\/api/, ''),
       },
+      "/db": {
+        target: 'http://localhost:5000',
+        rewrite: (path) => path.replace(/^\/db/, ''),
+      },
     },
   },
 }) 

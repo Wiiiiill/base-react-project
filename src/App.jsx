@@ -1,12 +1,12 @@
-import Main from "@/pages/Main"
+import Main from "@/pages/"
 import { BrowserRouter } from 'react-router-dom';
-import Layout from "@/layout/index.jsx"
+import Provider from "@/provider";
 export default function App() {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Provider>
         <Main />
-      </BrowserRouter>
-    </Layout>
+      </Provider>
+    </BrowserRouter>
   );
 }
