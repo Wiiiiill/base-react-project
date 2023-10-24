@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Menus from "@/pages/Menus";
 import { Container, Row, Col } from "react-bootstrap";
 import { test } from "@/services"
+import { store } from "@/stores"
 export default function App() {
     const [routes, setRoutes] = useState(defaultRoutes)
     useEffect(() => {
@@ -17,6 +18,7 @@ export default function App() {
         setRoutes([...defaultRoutes, ...extra])
     }
     const ele = useRoutes(routes)
+    console.log('store', store)
     return (
         <>
             <Container className="bg-light border">
